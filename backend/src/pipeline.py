@@ -22,9 +22,14 @@ from backend.src.models.regime_labeler import RegimeLabeler
 from backend.src.backtest.backtester import WalkForwardBacktester, compute_drawdowns
 
 class MacroRegimePipeline:
-    def __init__(self, settings_path: str = 'backend/config/settings.yaml',
-                 regime_map_path: str = 'backend/config/regime_map.yaml',
+    def __init__(self, settings_path: str = None,
+                 regime_map_path: str = None,
                  output_dir: str = 'backend/data/processed'):
+        
+        # Resolve paths dynamically relative to pipeline.py to prevent Vercel Serverless FileNotFoundError
+        base_dir = Path(__file__).resolve().parent.parent
+        settings_path = settings_path or str(base_dir / "config" / "settings.yaml")
+        regime_map_path = regime_map_path or str(base_dir / "config" / "regime_map.yaml")
         
         # Load configs
         with open(settings_path, 'r') as f:

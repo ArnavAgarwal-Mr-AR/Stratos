@@ -5,6 +5,8 @@ const DashboardView = lazy(() => import('./components/DashboardView'));
 const BacktestView = lazy(() => import('./components/BacktestView'));
 const ModelView = lazy(() => import('./components/ModelView'));
 
+import { Analytics } from '@vercel/analytics/react';
+
 
 function StratosLogo({ size = 32 }) {
   return (
@@ -350,6 +352,8 @@ export default function App() {
         </div>
       )}
       
+      <Analytics />
+
       {/* Styles for spinners */}
       <style>{`
         @keyframes spin {
