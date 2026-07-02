@@ -44,24 +44,31 @@ def get_data_paths():
     tmp_dir = Path("/tmp")
     local_dir = Path(__file__).parent.parent / "data" / "processed"
     
+    # Default fallback paths in config/ (committed to git)
+    config_dir = Path(__file__).parent.parent / "config"
+    default_model = config_dir / "default_model_results.json"
+    default_backtest = config_dir / "default_backtest_results.json"
+    
     if is_vercel:
         model_path = tmp_dir / "model_results.json"
         backtest_path = tmp_dir / "backtest_results.json"
+        
+        # If the user has not retrained the pipeline in this serverless session,
+        # we serve the pre-compiled defaults directly
+        if not model_path.exists():
+            model_path = default_model
+        if not backtest_path.exists():
+            backtest_path = default_backtest
     else:
         model_path = local_dir / "model_results.json"
         backtest_path = local_dir / "backtest_results.json"
         
-    # If neither exists (e.g. running locally for the first time without running pipeline), 
-    # we trigger a build write to local or /tmp depending on Vercel
-    if not model_path.exists() or not backtest_path.exists():
-        out_dir = tmp_dir if is_vercel else local_dir
-        print(f"Cache not found. Generating in-memory fallback to {out_dir}...")
-        pipeline = MacroRegimePipeline(output_dir=str(out_dir))
-        pipeline.run(force_mock=True)
-        
-        model_path = tmp_dir / "model_results.json" if is_vercel else local_dir / "model_results.json"
-        backtest_path = tmp_dir / "backtest_results.json" if is_vercel else local_dir / "backtest_results.json"
-        
+        # Local fallback if the user has not run pipeline.py yet
+        if not model_path.exists():
+            model_path = default_model
+        if not backtest_path.exists():
+            backtest_path = default_backtest
+            
     return model_path, backtest_path
 
 def load_json_data(file_path: Path):

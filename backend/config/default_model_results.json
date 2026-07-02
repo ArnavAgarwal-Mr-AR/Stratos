@@ -1,0 +1,145 @@
+{
+  "snapshot": {
+    "as_of_date": "2026-05-31",
+    "current_regime": "inflationary_expansion",
+    "probability": 0.9995754704666256,
+    "consecutive_months": 29,
+    "target_allocation": {
+      "SPY": 0.44989306709503624,
+      "DBC": 0.20001801120878296,
+      "TIP": 0.15001961847657583,
+      "TLT": 0.10000562488805158,
+      "SHY": 0.10006367833155332
+    },
+    "is_mock_data": false
+  },
+  "transition_matrix": [
+    [
+      0.9146611874320658,
+      0.08533881256793419,
+      2.835651327171957e-18,
+      2.4465672902140604e-18
+    ],
+    [
+      2.0663749843734496e-17,
+      0.9765696009436117,
+      0.011716849892794576,
+      0.011713549163593706
+    ],
+    [
+      0.01126551524020836,
+      5.189476366122691e-18,
+      0.977402812999568,
+      0.011331671760223608
+    ],
+    [
+      0.0235352930462757,
+      9.742830109955587e-13,
+      0.04700589177194487,
+      0.9294588151808051
+    ]
+  ],
+  "feature_profiles": {
+    "recession": {
+      "inflation_yoy": {
+        "mean": -2.015708177957731,
+        "variance": 2.0877822983177747
+      },
+      "gdp_growth": {
+        "mean": -1.4260133664658232,
+        "variance": 6.591532514107017
+      },
+      "unemployment_mom": {
+        "mean": 1.4612333663446269,
+        "variance": 7.355010999590639
+      },
+      "curve_slope": {
+        "mean": 0.4607209307406836,
+        "variance": 1.2493706866989502
+      },
+      "curve_slope_chg": {
+        "mean": 0.6664019686659765,
+        "variance": 0.2782989865650416
+      }
+    },
+    "disinflationary_expansion": {
+      "inflation_yoy": {
+        "mean": -0.7777619256617985,
+        "variance": 0.6125285224740877
+      },
+      "gdp_growth": {
+        "mean": -0.04797277108242908,
+        "variance": 0.4393491459632572
+      },
+      "unemployment_mom": {
+        "mean": -0.6567039773364608,
+        "variance": 0.4393082881651134
+      },
+      "curve_slope": {
+        "mean": 0.743439203144523,
+        "variance": 0.44845731108362763
+      },
+      "curve_slope_chg": {
+        "mean": -0.2256240220348478,
+        "variance": 0.9664758986684565
+      }
+    },
+    "inflationary_expansion": {
+      "inflation_yoy": {
+        "mean": -0.08510478028192414,
+        "variance": 0.22732872608564406
+      },
+      "gdp_growth": {
+        "mean": -0.002891524225376323,
+        "variance": 0.1850270661596631
+      },
+      "unemployment_mom": {
+        "mean": -0.0796095812816835,
+        "variance": 0.1927515775166781
+      },
+      "curve_slope": {
+        "mean": -0.9191628293517069,
+        "variance": 0.23761395446933972
+      },
+      "curve_slope_chg": {
+        "mean": 0.0854817803805631,
+        "variance": 0.4004019860232547
+      }
+    },
+    "stagflation": {
+      "inflation_yoy": {
+        "mean": 2.51422295879294,
+        "variance": 1.001846384849524
+      },
+      "gdp_growth": {
+        "mean": -0.35095167551592793,
+        "variance": 0.8859573505484499
+      },
+      "unemployment_mom": {
+        "mean": 0.1676461122730403,
+        "variance": 0.998956903079419
+      },
+      "curve_slope": {
+        "mean": -0.5915096710174607,
+        "variance": 0.9707669210053341
+      },
+      "curve_slope_chg": {
+        "mean": -0.16279191957647213,
+        "variance": 1.8849681017739928
+      }
+    }
+  },
+  "regime_labels": [
+    "recession",
+    "disinflationary_expansion",
+    "inflationary_expansion",
+    "stagflation"
+  ],
+  "feature_names": [
+    "inflation_yoy",
+    "gdp_growth",
+    "unemployment_mom",
+    "curve_slope",
+    "curve_slope_chg"
+  ]
+}
