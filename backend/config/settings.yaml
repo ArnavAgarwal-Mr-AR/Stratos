@@ -1,0 +1,11 @@
+country: US
+indicators:
+  - CPIAUCSL        # CPI, all urban consumers (FRED)
+  - GDPC1           # Real GDP (FRED)
+  - UNRATE          # Unemployment rate (FRED)
+  - T10Y2Y          # 10Y-2Y Treasury yield spread (FRED)
+start_date: '1990-01-01'
+end_date: '2026-06-01'
+rebalance_frequency: monthly
+n_regimes: 4
+min_periods: 36     # Warm-up period for expanding Z-score

@@ -1,0 +1,25 @@
+# Regime-to-Asset Class Target Weights
+inflationary_expansion:
+  SPY: 0.45          # Equities
+  DBC: 0.20          # Commodities
+  TIP: 0.15          # TIPS
+  TLT: 0.10          # Nominal Bonds
+  SHY: 0.10          # Cash / Short duration
+disinflationary_expansion:
+  SPY: 0.60
+  DBC: 0.05
+  TIP: 0.05
+  TLT: 0.20
+  SHY: 0.10
+stagflation:
+  SPY: 0.20
+  DBC: 0.25
+  TIP: 0.20
+  TLT: 0.10
+  SHY: 0.25
+recession:
+  SPY: 0.15
+  DBC: 0.05
+  TIP: 0.10
+  TLT: 0.45
+  SHY: 0.25

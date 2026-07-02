@@ -1,0 +1,16 @@
+{
+  "name": "macro-regime-platform-root",
+  "author": "Arnav Agarwal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Root orchestrator for Macro Regime Detection Platform monorepo",
+  "scripts": {
+    "setup": "npm install && npm install --prefix frontend && echo \"=== Next: Activate your Python virtual environment and run: pip install -r backend/requirements.txt ===\"",
+    "dev:backend": "python -m uvicorn backend.api.index:app --port 8000 --reload",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "npx concurrently \"npm run dev:backend\" \"npm run dev:frontend\" --names \"backend,frontend\" -c \"magenta,cyan\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
